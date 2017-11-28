@@ -43,7 +43,7 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network "private_network", ip: "192.168.33.200"
+  config.vm.network "private_network", ip: "192.168.33.203"
   config.vm.hostname = dirname
 
   # Create a public network, which generally matched to bridged network.
@@ -64,7 +64,6 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "../www", "/home/bitrix/www", type: "nfs", 
     mount_options: ['rw', 'vers=3', 'tcp', 'fsc']
 
-  config.vm.name = dirname;
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
