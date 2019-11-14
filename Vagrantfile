@@ -43,13 +43,13 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network "private_network", ip: "192.168.33.203"
+  config.vm.network "private_network", ip: "192.168.33.77"
   config.vm.hostname = dirname
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-  # config.vm.network "public_network"
+  # config.vm.network "public_network"		
 
   config.ssh.username = 'root'
   config.ssh.password = 'vagrant'
@@ -61,8 +61,8 @@ Vagrant.configure("2") do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder "../www", "/home/bitrix/www", type: "nfs", 
-    mount_options: ['rw', 'vers=3', 'tcp', 'fsc']
+  config.vm.synced_folder "/System/Volumes/Data/Volumes/STORAGE/dev/bpauto.local/www", "/home/bitrix/www", type: "nfs", 
+    mount_options: ['tcp']
 
 
   # Provider-specific configuration so you can fine-tune various
@@ -72,6 +72,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
     vb.gui = false
+    vb.name = dirname
   
     # Customize the amount of memory on the VM:
     vb.memory = "1024"
