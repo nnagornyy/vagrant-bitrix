@@ -61,7 +61,7 @@ Vagrant.configure("2") do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder "/System/Volumes/Data/Volumes/STORAGE/dev/bpauto.local/www", "/home/bitrix/www", type: "nfs", 
+  config.vm.synced_folder "../www", "/home/bitrix/www", type: "nfs", 
     mount_options: ['tcp']
 
 
